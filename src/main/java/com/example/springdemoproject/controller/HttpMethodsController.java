@@ -39,4 +39,12 @@ public class HttpMethodsController {
     {
         return "Hello, Welcome " + person.getFirstName() + " " + person.getLastName();
     }
+
+    //Demonstrating PutMapping with @PathVariable and @RequestParam.
+    //localhost:8080/put/Mihir/?lastName=Patil
+    @PutMapping("/put/{firstname}")
+    public String putMappingPersonInfo(@PathVariable String firstname, @RequestParam(value = "lastname") String lastname)
+    {
+        return "hello, Welcome " + firstname + " " + lastname;
+    }
 }
