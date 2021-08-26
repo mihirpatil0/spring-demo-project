@@ -3,7 +3,6 @@ package com.example.springdemoproject.controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/HttpMethods")
 public class HttpMethodsController {
 
     //demonstrating get request using RequestMapping
@@ -17,5 +16,19 @@ public class HttpMethodsController {
     @GetMapping("/getmessage")
     public String getMappingMessage(){
         return "Hello, Welcome Mihir.";
+    }
+
+    //demonstrating query parameter using @RequestParam
+    //localhost:8080/name?name=Mihir
+    @GetMapping("/name")
+    public String getNameUsingQueryParam(@RequestParam String name){
+        return "my name is " + name;
+    }
+
+    //demonstrating query parameter using @PathVariables
+    //localhost:8080/name/Mihir
+    @GetMapping("/name/{name}")
+    public String getNameUsingPathVariable(@PathVariable String name){
+        return "my name is " + name;
     }
 }
