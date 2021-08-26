@@ -24,4 +24,11 @@ public class HttpMethodsController {
     public String getNameUsingQueryParam(@RequestParam String name){
         return "my name is " + name;
     }
+
+    //demonstrating query parameter using @PathVariables
+    //localhost:8080/name/Mihir
+    @GetMapping("/name/{name}")
+    public String getNameUsingPathVariable(@PathVariable String name){
+        return "my name is " + name;
+    }
 }
