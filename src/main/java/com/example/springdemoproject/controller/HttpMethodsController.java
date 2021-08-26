@@ -1,5 +1,6 @@
 package com.example.springdemoproject.controller;
 
+import com.example.springdemoproject.entities.Person;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,5 +31,12 @@ public class HttpMethodsController {
     @GetMapping("/name/{name}")
     public String getNameUsingPathVariable(@PathVariable String name){
         return "my name is " + name;
+    }
+
+    //Demonstrating PostMapping with RequestBody.
+    @PostMapping("/post")
+    public String postPersonFullName(@RequestBody Person person)
+    {
+        return "Hello, Welcome " + person.getFirstName() + " " + person.getLastName();
     }
 }
